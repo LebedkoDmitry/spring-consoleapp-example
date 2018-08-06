@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="simpleService" class="org.lebedko.services.impl.SimpleServiceImpl" init-method="init" destroy-method="destroy">
+        <constructor-arg name="simpleDomainModel">
+            <bean class="org.lebedko.domain.SimpleDomainModel" init-method="init" destroy-method="destroy">
+                <constructor-arg name="constructorField">
+                    <value>constructor message</value>
+                </constructor-arg>
+                <property name="setterField" value="setter message"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean id="prototypeBean" scope="prototype" class="org.lebedko.domain.PrototypeDomainModel" init-method="init" destroy-method="destroy"/>
+
+    <bean class="org.lebedko.postprocessors.SimpleServiceBeanPostProcessor"/>
+    <bean class="org.lebedko.listeners.ApplicationContextRefreshedApplicationListener"/>
+
+</beans>
