@@ -1,6 +1,6 @@
-package org.lebedko.postprocessors;
+package com.tsystems.postprocessors;
 
-import org.lebedko.services.SimpleService;
+import com.tsystems.services.SimpleService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 

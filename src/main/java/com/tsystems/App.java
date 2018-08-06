@@ -1,8 +1,9 @@
-package org.lebedko;
+package com.tsystems;
 
-import org.lebedko.domain.PrototypeDomainModel;
-import org.lebedko.domain.SimpleDomainModel;
-import org.lebedko.services.SimpleService;
+import com.tsystems.domain.SimpleDomainModel;
+import com.tsystems.services.AbstractService;
+import com.tsystems.services.SimpleService;
+import com.tsystems.domain.PrototypeDomainModel;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -27,6 +28,11 @@ public class App
 
         System.out.println(firstSimpleDomainModel);
         System.out.println(secondSimpleDomainModel);
+
+        // LazyService lazyService = applicationContext.getBean(LazyService.class);
+
+        AbstractService abstractService = applicationContext.getBean(AbstractService.class);
+        abstractService.showMessage();
 
         PrototypeDomainModel firstPrototypeDomainModel = applicationContext.getBean(PrototypeDomainModel.class);
         PrototypeDomainModel secondPrototypeDomainModel = applicationContext.getBean(PrototypeDomainModel.class);

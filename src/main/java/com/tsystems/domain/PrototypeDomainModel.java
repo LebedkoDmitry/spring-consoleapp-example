@@ -1,4 +1,4 @@
-package org.lebedko.domain;
+package com.tsystems.domain;
 
 import java.util.UUID;
 

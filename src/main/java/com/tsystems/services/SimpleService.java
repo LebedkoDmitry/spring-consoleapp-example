@@ -1,6 +1,6 @@
-package org.lebedko.services;
+package com.tsystems.services;
 
-import org.lebedko.domain.SimpleDomainModel;
+import com.tsystems.domain.SimpleDomainModel;
 
 public interface SimpleService {
 

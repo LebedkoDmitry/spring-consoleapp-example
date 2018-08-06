@@ -1,4 +1,4 @@
-package org.lebedko.domain;
+package com.tsystems.domain;
 
 public class CustomBean {
 

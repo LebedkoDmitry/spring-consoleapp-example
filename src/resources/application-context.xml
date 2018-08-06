@@ -5,9 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="simpleService" class="org.lebedko.services.impl.SimpleServiceImpl" init-method="init" destroy-method="destroy">
+    <bean id="simpleService" class="com.tsystems.services.impl.SimpleServiceImpl" init-method="init" destroy-method="destroy">
         <constructor-arg name="simpleDomainModel">
-            <bean class="org.lebedko.domain.SimpleDomainModel" init-method="init" destroy-method="destroy">
+            <bean class="com.tsystems.domain.SimpleDomainModel" init-method="init" destroy-method="destroy">
                 <constructor-arg name="constructorField">
                     <value>constructor message</value>
                 </constructor-arg>
@@ -16,9 +16,18 @@
         </constructor-arg>
     </bean>
 
-    <bean id="prototypeBean" scope="prototype" class="org.lebedko.domain.PrototypeDomainModel" init-method="init" destroy-method="destroy"/>
+    <bean id="lazyService" class="com.tsystems.services.impl.LazyServiceImpl" lazy-init="true">
+    </bean>
 
-    <bean class="org.lebedko.postprocessors.SimpleServiceBeanPostProcessor"/>
-    <bean class="org.lebedko.listeners.ApplicationContextRefreshedApplicationListener"/>
+    <bean id="parentAbstractService" class="com.tsystems.services.AbstractService" abstract="true">
+        <property name="message" value="Some message in abstract service"/>
+    </bean>
+
+    <bean id="childAbstractService" parent="parentAbstractService"/>
+
+    <bean id="prototypeBean" scope="prototype" class="com.tsystems.domain.PrototypeDomainModel" init-method="init" destroy-method="destroy"/>
+
+    <bean class="com.tsystems.postprocessors.SimpleServiceBeanPostProcessor"/>
+    <bean class="com.tsystems.listeners.ApplicationContextRefreshedApplicationListener"/>
 
 </beans>

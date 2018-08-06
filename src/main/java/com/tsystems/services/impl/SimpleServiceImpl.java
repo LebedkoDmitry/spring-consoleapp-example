@@ -1,7 +1,7 @@
-package org.lebedko.services.impl;
+package com.tsystems.services.impl;
 
-import org.lebedko.domain.SimpleDomainModel;
-import org.lebedko.services.SimpleService;
+import com.tsystems.domain.SimpleDomainModel;
+import com.tsystems.services.SimpleService;
 
 public class SimpleServiceImpl implements SimpleService {
 
