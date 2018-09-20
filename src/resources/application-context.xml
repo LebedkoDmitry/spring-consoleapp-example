@@ -2,8 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+        
+    <aop:aspectj-autoproxy />
+
+    <bean class="com.tsystems.aspects.CallLoggingAspect"/>
 
     <bean id="simpleService" class="com.tsystems.services.impl.SimpleServiceImpl" init-method="init" destroy-method="destroy">
         <constructor-arg name="simpleDomainModel">
