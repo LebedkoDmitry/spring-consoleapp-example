@@ -15,7 +15,7 @@ public class App
     {
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:application-context.xml");
         processApplicationContext(applicationContext);
-        AbstractApplicationContext applicationContext1 = new FileSystemXmlApplicationContext("src/resources/application-context.xml");
+        AbstractApplicationContext applicationContext1 = new FileSystemXmlApplicationContext("src/main/resources/application-context.xml");
         processApplicationContext(applicationContext1);
 
         AbstractApplicationContext applicationContext2 = new AnnotationConfigApplicationContext("com.tsystems.services.impl.annotated", "com.tsystems.domain.annotated");
